@@ -3,86 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tiara Premium Store | Elegant & Trusted</title>
+    <title>Aura Luxe | Premium Essential Collection</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #ff85a1; /* Pink elegan */
-            --secondary: #fce4ec;
-            --dark: #2d3436;
-            --light: #ffffff;
-            --gray: #636e72;
+            --primary: #d4a373; /* Gold/Bronze profesional */
+            --accent: #faedcd;
+            --dark: #1a1a1a;
+            --light: #fefae0;
+            --white: #ffffff;
+            --gray: #718096;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
         html { scroll-behavior: smooth; }
-        body { background-color: #fffafb; color: var(--dark); line-height: 1.6; }
+        body { background-color: #fcfcfc; color: var(--dark); line-height: 1.6; }
 
-        /* --- Navbar & Hamburger --- */
+        /* --- Navigation --- */
         nav {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 15px 8%; background: white; position: sticky; top: 0; z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 15px 8%; background: var(--white); position: sticky; top: 0; z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
         }
-        .logo { font-weight: 800; font-size: 1.4rem; color: var(--primary); }
+        .brand-name { font-weight: 800; font-size: 1.5rem; color: var(--dark); letter-spacing: 1px; }
+        .brand-name span { color: var(--primary); }
+        
         .nav-links { display: flex; list-style: none; gap: 30px; }
-        .nav-links a { text-decoration: none; color: var(--dark); font-weight: 600; transition: 0.3s; }
+        .nav-links a { text-decoration: none; color: var(--dark); font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
         .nav-links a:hover { color: var(--primary); }
         
         .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
-        .hamburger span { width: 25px; height: 3px; background: var(--primary); border-radius: 2px; }
+        .hamburger span { width: 25px; height: 3px; background: var(--dark); border-radius: 2px; }
 
-        /* --- Hero Section & Timer --- */
+        /* --- Hero Section --- */
         .hero { 
             padding: 100px 8%; text-align: center; 
-            background: linear-gradient(to bottom, #fff5f7, #ffffff);
+            background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+            min-height: 70vh; display: flex; flex-direction: column; justify-content: center;
         }
-        .hero h1 { font-size: 3rem; margin-bottom: 20px; color: var(--dark); }
-        .timer-container { margin: 30px 0; display: flex; justify-content: center; gap: 15px; }
-        .timer-box { background: var(--primary); color: white; padding: 10px 15px; border-radius: 10px; min-width: 70px; }
-        .timer-box span { display: block; font-size: 1.5rem; font-weight: 800; }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 20px; font-weight: 800; line-height: 1.2; }
+        .timer-container { margin: 30px 0; display: flex; justify-content: center; gap: 10px; }
+        .timer-box { background: var(--dark); color: var(--white); padding: 10px; border-radius: 8px; min-width: 65px; }
+        .timer-box span { display: block; font-size: 1.2rem; font-weight: 700; }
 
-        /* --- Product Grid --- */
+        /* --- Grid Section --- */
         .section { padding: 80px 8%; text-align: center; }
+        .section-tag { color: var(--primary); font-weight: 700; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
         .card { 
-            background: white; padding: 20px; border-radius: 20px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.4s;
+            background: var(--white); padding: 25px; border-radius: 15px; 
+            box-shadow: 0 5px 20px rgba(0,0,0,0.02); transition: 0.4s; border: 1px solid #f0f0f0;
         }
-        .card:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(255,133,161,0.2); }
-        .card img { width: 100%; border-radius: 15px; margin-bottom: 15px; }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+        .card img { width: 100%; border-radius: 10px; margin-bottom: 20px; filter: grayscale(20%); transition: 0.3s; }
+        .card:hover img { filter: grayscale(0%); }
 
         /* --- FAQ Accordion --- */
-        .faq-item { background: white; margin-bottom: 10px; border-radius: 10px; text-align: left; overflow: hidden; border: 1px solid #eee; }
-        .faq-question { padding: 20px; cursor: pointer; font-weight: 700; display: flex; justify-content: space-between; }
-        .faq-answer { padding: 0 20px; max-height: 0; overflow: hidden; transition: 0.3s ease-out; color: var(--gray); }
+        .faq-container { max-width: 700px; margin: 40px auto; }
+        .faq-item { background: var(--white); margin-bottom: 12px; border-radius: 12px; text-align: left; border: 1px solid #eee; }
+        .faq-question { padding: 20px; cursor: pointer; font-weight: 700; display: flex; justify-content: space-between; align-items: center; }
+        .faq-answer { padding: 0 20px; max-height: 0; overflow: hidden; transition: 0.4s ease; color: var(--gray); }
 
         /* --- Floating WhatsApp --- */
         .wa-float {
-            position: fixed; bottom: 20px; right: 20px;
+            position: fixed; bottom: 30px; right: 30px;
             background: #25d366; color: white; width: 60px; height: 60px;
             border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-size: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); z-index: 1000;
+            font-size: 24px; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); z-index: 1000;
             text-decoration: none; transition: 0.3s;
         }
-        .wa-float:hover { transform: scale(1.1); background: #128c7e; }
 
-        /* --- Responsive --- */
+        /* --- Footer --- */
+        footer { padding: 60px 8%; background: #1a1a1a; color: #888; text-align: center; }
+        .footer-brand { color: var(--white); font-weight: 800; font-size: 1.5rem; margin-bottom: 10px; display: block; }
+
         @media (max-width: 768px) {
-            .nav-links { display: none; position: absolute; top: 60px; left: 0; width: 100%; background: white; flex-direction: column; padding: 20px; }
+            .nav-links { display: none; position: absolute; top: 70px; left: 0; width: 100%; background: white; flex-direction: column; padding: 30px; gap: 20px; box-shadow: 0 10px 15px rgba(0,0,0,0.05); }
             .nav-links.active { display: flex; }
             .hamburger { display: flex; }
-            .hero h1 { font-size: 2rem; }
+            .hero h1 { font-size: 2.2rem; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">TIARA PREMIUM</div>
+        <div class="brand-name">AURA<span>LUXE</span></div>
         <ul class="nav-links" id="navLinks">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#products">Katalog</a></li>
+            <li><a href="#home">Beranda</a></li>
+            <li><a href="#katalog">Katalog</a></li>
             <li><a href="#faq">Bantuan</a></li>
         </ul>
         <div class="hamburger" onclick="toggleMenu()">
@@ -91,53 +100,70 @@
     </nav>
 
     <header class="hero" id="home">
-        <h1>Elegansi Dalam Setiap Sentuhan 🎀</h1>
-        <p>Promo Spesial Berakhir Dalam:</p>
+        <span class="section-tag">Limited Edition</span>
+        <h1>Kualitas Premium Untuk Gaya Hidup Anda</h1>
+        <p>Temukan koleksi eksklusif yang dirancang dengan presisi dan material terbaik.</p>
         <div class="timer-container">
             <div class="timer-box"><span id="days">00</span>Hari</div>
             <div class="timer-box"><span id="hours">00</span>Jam</div>
             <div class="timer-box"><span id="minutes">00</span>Menit</div>
         </div>
-        <a href="#products" style="background: var(--primary); color:white; padding: 15px 30px; border-radius: 50px; text-decoration:none; font-weight:700;">Lihat Koleksi</a>
+        <div>
+            <a href="#katalog" style="background: var(--dark); color:white; padding: 18px 40px; border-radius: 8px; text-decoration:none; font-weight:700; transition:0.3s;">Jelajahi Sekarang</a>
+        </div>
     </header>
 
-    <section class="section" id="products">
-        <h2>Produk Terlaris</h2>
+    <section class="section" id="katalog">
+        <span class="section-tag">Best Seller</span>
+        <h2>Produk Unggulan Kami</h2>
         <div class="grid">
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1549439602-43ebca2327af?w=400" alt="Product">
-                <h3>Elegant Silk Scarf</h3>
-                <p>IDR 150.000</p>
+                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500" alt="Minimalist Product">
+                <h3>Signature Timepiece</h3>
+                <p>Kombinasi klasik dan modern dalam satu genggaman.</p>
+                <p style="font-weight: 800; color: var(--primary); margin-top: 10px;">IDR 1.250.000</p>
             </div>
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400" alt="Product">
-                <h3>Luxury Watch Silver</h3>
-                <p>IDR 850.000</p>
+                <img src="https://images.unsplash.com/photo-1549439602-43ebca2327af?w=500" alt="Leather Goods">
+                <h3>Executive Leather Kit</h3>
+                <p>Material kulit asli dengan daya tahan maksimal.</p>
+                <p style="font-weight: 800; color: var(--primary); margin-top: 10px;">IDR 450.000</p>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500" alt="Audio">
+                <h3>Pure Sound Headset</h3>
+                <p>Kualitas audio jernih tanpa gangguan suara luar.</p>
+                <p style="font-weight: 800; color: var(--primary); margin-top: 10px;">IDR 2.100.000</p>
             </div>
         </div>
     </section>
 
-    <section class="section" id="faq" style="background: #fff;">
-        <h2>Sering Ditanyakan</h2>
-        <div style="max-width: 600px; margin: 40px auto;">
+    <section class="section" id="faq">
+        <span class="section-tag">FAQ</span>
+        <h2>Layanan Pelanggan</h2>
+        <div class="faq-container">
             <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">Apakah barang ready stok? <span>+</span></div>
-                <div class="faq-answer"><p style="padding-bottom:20px;">Semua barang yang tampil di website siap dikirim dalam 24 jam.</p></div>
+                <div class="faq-question" onclick="toggleFaq(this)">Berapa lama proses pengiriman? <span>+</span></div>
+                <div class="faq-answer"><p style="padding-bottom:20px;">Kami melakukan pengiriman setiap hari. Estimasi tiba 1-3 hari kerja tergantung lokasi Anda.</p></div>
             </div>
             <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">Bisa COD? <span>+</span></div>
-                <div class="faq-answer"><p style="padding-bottom:20px;">Tentu! Kami melayani pembayaran di tempat untuk seluruh wilayah Indonesia.</p></div>
+                <div class="faq-question" onclick="toggleFaq(this)">Apakah ada garansi pengembalian? <span>+</span></div>
+                <div class="faq-answer"><p style="padding-bottom:20px;">Ya, kami memberikan garansi retur 7 hari jika barang yang diterima cacat atau tidak sesuai pesanan.</p></div>
             </div>
         </div>
     </section>
 
-    <a href="https://wa.me/628123456789" class="wa-float" target="_blank">📲</a>
+    <footer>
+        <span class="footer-brand">AURA LUXE</span>
+        <p>Menghadirkan standar baru dalam belanja online yang aman dan terpercaya.</p>
+        <p style="margin-top: 30px; font-size: 0.7rem; border-top: 1px solid #333; padding-top: 20px;">&copy; 2026 Aura Luxe Digital. All Rights Reserved.</p>
+    </footer>
+
+    <a href="https://wa.me/628123456789" class="wa-float" target="_blank">💬</a>
 
     <script>
-        // Hamburger Menu
         function toggleMenu() { document.getElementById('navLinks').classList.toggle('active'); }
 
-        // FAQ Accordion
         function toggleFaq(element) {
             const answer = element.nextElementSibling;
             if (answer.style.maxHeight) {
@@ -149,7 +175,6 @@
             }
         }
 
-        // Countdown Timer (24 jam dari sekarang)
         const deadline = new Date().getTime() + 86400000;
         setInterval(() => {
             const now = new Date().getTime();
