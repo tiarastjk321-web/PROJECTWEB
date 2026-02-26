@@ -3,172 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tiara's Magical Corner 🎀</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Tiara Premium Store | Elegant & Trusted</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --pink-soft: #ffdde1;
-            --pink-accent: #ff9a9e;
-            --cream: #fff5f5;
-            --text-color: #7d5a5a;
-            --white: #ffffff;
+            --primary: #ff85a1; /* Pink elegan */
+            --secondary: #fce4ec;
+            --dark: #2d3436;
+            --light: #ffffff;
+            --gray: #636e72;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Quicksand', sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+        html { scroll-behavior: smooth; }
+        body { background-color: #fffafb; color: var(--dark); line-height: 1.6; }
 
-        body { background-color: var(--cream); color: var(--text-color); overflow-x: hidden; }
-
-        /* --- NAVIGATION --- */
+        /* --- Navbar & Hamburger --- */
         nav {
-            background: var(--white);
-            padding: 15px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 5px 15px rgba(255, 154, 158, 0.2);
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 8%; background: white; position: sticky; top: 0; z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
-
-        .logo { font-family: 'Cherry Bomb One', cursive; font-size: 1.8rem; color: var(--pink-accent); }
-
-        .nav-links { display: flex; list-style: none; gap: 25px; }
-        .nav-links a { text-decoration: none; color: var(--text-color); font-weight: 700; transition: 0.3s; }
-        .nav-links a:hover { color: var(--pink-accent); }
-
-        /* Hamburger Menu */
+        .logo { font-weight: 800; font-size: 1.4rem; color: var(--primary); }
+        .nav-links { display: flex; list-style: none; gap: 30px; }
+        .nav-links a { text-decoration: none; color: var(--dark); font-weight: 600; transition: 0.3s; }
+        .nav-links a:hover { color: var(--primary); }
+        
         .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
-        .hamburger span { width: 25px; height: 3px; background: var(--pink-accent); border-radius: 5px; }
+        .hamburger span { width: 25px; height: 3px; background: var(--primary); border-radius: 2px; }
 
-        /* --- HERO SECTION --- */
-        .hero {
-            height: 80vh;
-            background: linear-gradient(rgba(255, 221, 225, 0.5), rgba(255, 221, 225, 0.5)), 
-                        url('https://img.freepik.com/free-vector/kawaii-sky-with-sparkles-background_23-2148827764.jpg');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 20px;
-            margin-top: 60px;
+        /* --- Hero Section & Timer --- */
+        .hero { 
+            padding: 100px 8%; text-align: center; 
+            background: linear-gradient(to bottom, #fff5f7, #ffffff);
         }
+        .hero h1 { font-size: 3rem; margin-bottom: 20px; color: var(--dark); }
+        .timer-container { margin: 30px 0; display: flex; justify-content: center; gap: 15px; }
+        .timer-box { background: var(--primary); color: white; padding: 10px 15px; border-radius: 10px; min-width: 70px; }
+        .timer-box span { display: block; font-size: 1.5rem; font-weight: 800; }
 
-        .hero h1 { font-family: 'Cherry Bomb One', cursive; font-size: 3.5rem; color: var(--white); text-shadow: 3px 3px var(--pink-accent); margin-bottom: 10px; }
-        .hero p { font-size: 1.2rem; background: var(--white); padding: 5px 15px; border-radius: 20px; }
-
-        /* --- PRODUCT SECTION --- */
-        .products { padding: 80px 8%; text-align: center; }
-        .products h2 { font-family: 'Cherry Bomb One', cursive; font-size: 2.5rem; color: var(--pink-accent); margin-bottom: 40px; }
-
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
-
-        .product-card {
-            background: var(--white);
-            padding: 20px;
-            border-radius: 30px;
-            border: 3px dashed var(--pink-soft);
-            transition: 0.3s;
-            position: relative;
+        /* --- Product Grid --- */
+        .section { padding: 80px 8%; text-align: center; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
+        .card { 
+            background: white; padding: 20px; border-radius: 20px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.4s;
         }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(255,133,161,0.2); }
+        .card img { width: 100%; border-radius: 15px; margin-bottom: 15px; }
 
-        .product-card:hover { transform: scale(1.05); border-style: solid; border-color: var(--pink-accent); }
+        /* --- FAQ Accordion --- */
+        .faq-item { background: white; margin-bottom: 10px; border-radius: 10px; text-align: left; overflow: hidden; border: 1px solid #eee; }
+        .faq-question { padding: 20px; cursor: pointer; font-weight: 700; display: flex; justify-content: space-between; }
+        .faq-answer { padding: 0 20px; max-height: 0; overflow: hidden; transition: 0.3s ease-out; color: var(--gray); }
 
-        .product-card img { width: 100%; border-radius: 20px; margin-bottom: 15px; }
-        .product-card h3 { font-size: 1.3rem; margin-bottom: 10px; }
-        .product-card .price { font-weight: 700; color: var(--pink-accent); font-size: 1.2rem; }
-
-        .btn-buy {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 10px 20px;
-            background: var(--pink-accent);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 700;
+        /* --- Floating WhatsApp --- */
+        .wa-float {
+            position: fixed; bottom: 20px; right: 20px;
+            background: #25d366; color: white; width: 60px; height: 60px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); z-index: 1000;
+            text-decoration: none; transition: 0.3s;
         }
+        .wa-float:hover { transform: scale(1.1); background: #128c7e; }
 
-        /* --- RESPONSIVE MOBILE --- */
+        /* --- Responsive --- */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none; /* Kita sembunyikan aslinya */
-                flex-direction: column;
-                position: absolute;
-                top: 65px;
-                left: 0;
-                width: 100%;
-                background: var(--white);
-                padding: 20px;
-                text-align: center;
-                box-shadow: 0 10px 10px rgba(0,0,0,0.05);
-            }
+            .nav-links { display: none; position: absolute; top: 60px; left: 0; width: 100%; background: white; flex-direction: column; padding: 20px; }
             .nav-links.active { display: flex; }
             .hamburger { display: flex; }
-            .hero h1 { font-size: 2.2rem; }
+            .hero h1 { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">🎀 Tiara.Co</div>
+        <div class="logo">TIARA PREMIUM</div>
         <ul class="nav-links" id="navLinks">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Products</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#products">Katalog</a></li>
+            <li><a href="#faq">Bantuan</a></li>
         </ul>
         <div class="hamburger" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
+            <span></span><span></span><span></span>
         </div>
     </nav>
 
-    <header class="hero">
-        <h1>Magical Corner</h1>
-        <p>Temukan kebahagiaan kecilmu di sini! ✨</p>
+    <header class="hero" id="home">
+        <h1>Elegansi Dalam Setiap Sentuhan 🎀</h1>
+        <p>Promo Spesial Berakhir Dalam:</p>
+        <div class="timer-container">
+            <div class="timer-box"><span id="days">00</span>Hari</div>
+            <div class="timer-box"><span id="hours">00</span>Jam</div>
+            <div class="timer-box"><span id="minutes">00</span>Menit</div>
+        </div>
+        <a href="#products" style="background: var(--primary); color:white; padding: 15px 30px; border-radius: 50px; text-decoration:none; font-weight:700;">Lihat Koleksi</a>
     </header>
 
-    <section class="products">
-        <h2>Our Sweetest Items 🌸</h2>
-        <div class="product-grid">
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=500&q=80" alt="Cookie">
-                <h3>Soft Strawberry Cookie</h3>
-                <p class="price">IDR 25.000</p>
-                <a href="#" class="btn-buy">Beli Sekarang 🎀</a>
+    <section class="section" id="products">
+        <h2>Produk Terlaris</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1549439602-43ebca2327af?w=400" alt="Product">
+                <h3>Elegant Silk Scarf</h3>
+                <p>IDR 150.000</p>
             </div>
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1514517604298-cf80e0fb7f1e?w=500&q=80" alt="Drink">
-                <h3>Pastel Berry Juice</h3>
-                <p class="price">IDR 35.000</p>
-                <a href="#" class="btn-buy">Beli Sekarang 🎀</a>
-            </div>
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=500&q=80" alt="Cake">
-                <h3>Blueberry Dream Cake</h3>
-                <p class="price">IDR 45.000</p>
-                <a href="#" class="btn-buy">Beli Sekarang 🎀</a>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400" alt="Product">
+                <h3>Luxury Watch Silver</h3>
+                <p>IDR 850.000</p>
             </div>
         </div>
     </section>
 
-    <footer style="text-align: center; padding: 40px; background: var(--pink-soft);">
-        <p>Made with Love by Tiara 🎀 &copy; 2026</p>
-    </footer>
+    <section class="section" id="faq" style="background: #fff;">
+        <h2>Sering Ditanyakan</h2>
+        <div style="max-width: 600px; margin: 40px auto;">
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">Apakah barang ready stok? <span>+</span></div>
+                <div class="faq-answer"><p style="padding-bottom:20px;">Semua barang yang tampil di website siap dikirim dalam 24 jam.</p></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">Bisa COD? <span>+</span></div>
+                <div class="faq-answer"><p style="padding-bottom:20px;">Tentu! Kami melayani pembayaran di tempat untuk seluruh wilayah Indonesia.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <a href="https://wa.me/628123456789" class="wa-float" target="_blank">📲</a>
 
     <script>
-        function toggleMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
-        }
-    </script>
+        // Hamburger Menu
+        function toggleMenu() { document.getElementById('navLinks').classList.toggle('active'); }
 
+        // FAQ Accordion
+        function toggleFaq(element) {
+            const answer = element.nextElementSibling;
+            if (answer.style.maxHeight) {
+                answer.style.maxHeight = null;
+                element.querySelector('span').innerText = "+";
+            } else {
+                answer.style.maxHeight = answer.scrollHeight + "px";
+                element.querySelector('span').innerText = "-";
+            }
+        }
+
+        // Countdown Timer (24 jam dari sekarang)
+        const deadline = new Date().getTime() + 86400000;
+        setInterval(() => {
+            const now = new Date().getTime();
+            const diff = deadline - now;
+            document.getElementById('days').innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
+            document.getElementById('hours').innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            document.getElementById('minutes').innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        }, 1000);
+    </script>
 </body>
 </html>
